@@ -43,6 +43,8 @@
   box-sizing: border-box;
 }
 
+
+
 .navbar {
   position: relative;
   width: 100vw;
@@ -55,39 +57,79 @@
   font-weight: var(--font-cuerpo-medium);
   background-color: #fff;
   border-bottom: 1px solid #000;
-  .navbar-logo {
-    position: absolute;
-    height: 150%;
-    left: 0;
-    margin-left: 2rem;
-    padding: 1rem;
+}
+
+.navbar-logo {
+  position: absolute;
+  height: 150%;
+  left: 0;
+  margin-left: 2rem;
+  padding: 1rem;
+}
+
+.navbar-list {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  list-style: none;
+  padding: 0;
+}
+
+.navbar-item a {
+  color: var(--color-texto);
+  text-decoration: none;
+  transition: background-size 0.3s;
+}
+
+.navbar-item a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primario);
+  transition: width 0.3s;
+}
+
+.navbar-item a:hover {
+  color: var(--color-primario);
+}
+
+.navbar-item a:hover::after {
+  width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
   }
-
+  .navbar-logo {
+    position: static;
+    margin: 0;
+    padding: 0.5rem;
+  }
   .navbar-list {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    list-style: none;
-    padding: 0;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .navbar-item a {
+    font-size: var(--h5);
+  }
+}
 
-    .navbar-item a {
-      color: var(--color-texto);
-      text-decoration: none;
-      transition: background-size 0.3s;
-    }
-    .navbar-item a::after {
-      content: "";
-      display: block;
-      width: 0;
-      height: 2px;
-      background-color: var(--color-primario);
-      transition: width 0.3s;
-    }
-    .navbar-item a:hover {
-      color: var(--color-primario);
-    }
-    .navbar-item a:hover::after {
-      width: 100%;
-    }
+@media (min-width: 577px) and (max-width: 992px) {
+  .navbar {
+    height: 4rem;
+  }
+  .navbar-logo {
+    height: 120%;
+    margin-left: 1rem;
+  }
+  .navbar-list {
+    gap: 2rem;
+  }
+  .navbar-item a {
+    font-size: var(--h4);
   }
 }

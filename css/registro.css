@@ -1,3 +1,34 @@
+@media (max-width: 576px) {
+    .registration-form {
+        max-width: 90%;
+        min-width: auto;
+        padding: 2rem;
+    }
+
+    .registration-form .form-group {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-form .submit-button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+    .registration-form {
+        max-width: 70%;
+        min-width: auto;
+        padding: 3rem;
+    }
+
+    .registration-form .form-group {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .registration-form .submit-button {
+        width: 100%;
+    }
+}
 :root {
     --color-primario: #ff7f50; /* Coral */
     --color-secundario: #6b8e23; /* Oliva */
@@ -36,8 +67,9 @@
 }
 
 .registration-form {
-    height: 100vh;
-    width: 50%;
+    height: auto;
+    max-width: 50%;
+    min-width: 591px;
     margin: auto;
     background-color: #e0dede91;
     backdrop-filter: blur(2px);

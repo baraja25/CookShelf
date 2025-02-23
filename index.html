@@ -3,37 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="sass/styles.css" />
+    <link rel="stylesheet" href="sass/navbar.css" />
+    <link rel="stylesheet" href="sass/footer.css" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <!-- Hotjar Tracking Code for https://baraja25.github.io/CookShelf/ -->
-    <script>
-      (function (h, o, t, j, a, r) {
-        h.hj =
-          h.hj ||
-          function () {
-            (h.hj.q = h.hj.q || []).push(arguments);
-          };
-        h._hjSettings = { hjid: 5301101, hjsv: 6 };
-        a = o.getElementsByTagName("head")[0];
-        r = o.createElement("script");
-        r.async = 1;
-        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
-      F;
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <title>CookShelf</title>
   </head>
   <body>
     <header class="navbar">
-      <img src="img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo" />
+      <a href="index.html">
+        <img src="img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo" />
+      </a>
       <nav>
         <ul class="navbar-list">
-          <li class="navbar-item"><a href="index.html">Inicio</a></li>
           <li class="navbar-item">
-            <a href="pages/SobreNosotros.html">Nosotros</a>
+            <a href="pages/SobreNosotros.html">Sobre Nosotros</a>
           </li>
           <li class="navbar-item"><a href="pages/recetas.html">Recetas</a></li>
           <li class="navbar-item">
@@ -47,6 +32,7 @@
     </header>
     <main>
       <section class="hero">
+        <img src="img/LogoWhite.png" alt="Hero" class="hero-img" />
         <h1 class="hero-title">CookShelf</h1>
         <p class="hero-description">
           ¡Empieza a cocinar con lo que tienes hoy mismo!
@@ -63,7 +49,7 @@
           />
         </div>
         <div class="categorias-ingredientes">
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Tomate">
             <img
               src="img/icons/tomato.png"
               alt="Tomate"
@@ -71,7 +57,7 @@
             />
             <p class="ingrediente-text">Tomate</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Cebolla">
             <img
               src="img/icons/onion.png"
               alt="Cebolla"
@@ -79,7 +65,7 @@
             />
             <p class="ingrediente-text">Cebolla</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Ajo">
             <img
               src="img/icons/garlic.png"
               alt="Ajo"
@@ -87,7 +73,7 @@
             />
             <p class="ingrediente-text">Ajo</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Zanahoria">
             <img
               src="img/icons/carrot.png"
               alt="Zanahoria"
@@ -95,7 +81,7 @@
             />
             <p class="ingrediente-text">Zanahoria</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Patata">
             <img
               src="img/icons/potato.png"
               alt="Patata"
@@ -103,7 +89,7 @@
             />
             <p class="ingrediente-text">Patata</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Pimiento">
             <img
               src="img/icons/pepper.png"
               alt="Pimiento"
@@ -111,7 +97,7 @@
             />
             <p class="ingrediente-text">Pimiento</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Pollo">
             <img
               src="img/icons/chicken.png"
               alt="Pollo"
@@ -119,7 +105,7 @@
             />
             <p class="ingrediente-text">Pollo</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Carne de res">
             <img
               src="img/icons/beef.png"
               alt="Carne de res"
@@ -127,7 +113,7 @@
             />
             <p class="ingrediente-text">Carne de res</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Pescado">
             <img
               src="img/icons/fish.png"
               alt="Pescado"
@@ -135,7 +121,7 @@
             />
             <p class="ingrediente-text">Pescado</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Queso">
             <img
               src="img/icons/cheese.png"
               alt="Queso"
@@ -143,7 +129,7 @@
             />
             <p class="ingrediente-text">Queso</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Leche">
             <img
               src="img/icons/milk.png"
               alt="Leche"
@@ -151,11 +137,12 @@
             />
             <p class="ingrediente-text">Leche</p>
           </div>
-          <div class="ingrediente-card">
+          <div class="ingrediente-card" data-ingrediente="Huevo">
             <img src="img/icons/egg.png" alt="Huevo" class="ingrediente-icon" />
             <p class="ingrediente-text">Huevo</p>
           </div>
         </div>
+        <div class="recetas-filtradas"></div>
         <button class="categorias-button">Buscar recetas</button>
       </section>
       <section class="recetas-semana section-anterior">
@@ -228,14 +215,6 @@
     </main>
     <footer class="footer">
       <div class="footer-content">
-        <div class="footer-about">
-          <h3>Sobre Nosotros</h3>
-          <p>
-            Somos una plataforma dedicada a ayudarte a cocinar con los
-            ingredientes que tienes a mano. Encuentra recetas fáciles y
-            deliciosas basadas en lo que tienes en tu cocina.
-          </p>
-        </div>
         <div class="footer-newsletter">
           <h3 class="footer-newsletter-title">Suscríbete a nuestro boletín</h3>
           <form action="#" method="post">
@@ -283,5 +262,50 @@
         &copy; © 2025 CookShelf. Todos los derechos reservados..
       </p>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const ingredientes = document.querySelectorAll(".ingrediente-card");
+        const recetasFiltradas = document.querySelector(".recetas-filtradas");
+        const buscarRecetasButton = document.querySelector(".categorias-button");
+        let ingredientesSeleccionados = [];
+
+        ingredientes.forEach((ingrediente) => {
+          ingrediente.addEventListener("click", function () {
+            const ingredienteNombre = this.getAttribute("data-ingrediente");
+            if (ingredientesSeleccionados.includes(ingredienteNombre)) {
+              ingredientesSeleccionados = ingredientesSeleccionados.filter(
+                (item) => item !== ingredienteNombre
+              );
+              this.classList.remove("selected");
+            } else {
+              ingredientesSeleccionados.push(ingredienteNombre);
+              this.classList.add("selected");
+            }
+          });
+        });
+
+        buscarRecetasButton.addEventListener("click", function () {
+          recetasFiltradas.innerHTML = "";
+          if (ingredientesSeleccionados.length > 0) {
+            // Aquí puedes agregar la lógica para filtrar las recetas según los ingredientes seleccionados
+            // Por ahora, solo se mostrarán tarjetas de ejemplo
+            ingredientesSeleccionados.forEach((ingrediente) => {
+              const recetaCard = document.createElement("div");
+              recetaCard.classList.add("receta-card");
+              recetaCard.innerHTML = `
+                <img src="img/recetas/receta1.jpg" alt="Receta con ${ingrediente}" class="receta-img" />
+                <h3 class="receta-title">Receta con ${ingrediente}</h3>
+                <p class="receta-description">Descripción breve de la receta con ${ingrediente}.</p>
+                <a href="" class="receta-button">Ver receta</a>
+              `;
+              recetasFiltradas.appendChild(recetaCard);
+            });
+          } else {
+            recetasFiltradas.innerHTML = "<p>No se han seleccionado ingredientes.</p>";
+          }
+        });
+      });
+    </script>
   </body>
 </html>

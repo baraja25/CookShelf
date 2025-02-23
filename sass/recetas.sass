@@ -1,0 +1,145 @@
+// Definición de variables SASS para los colores
+$color-primario: #ff7f50 // Coral
+$color-secundario: #6b8e23 // Oliva
+$color-destacado: #ffd700 // Oro
+$color-neutral: #fffcf5 // Beige
+$color-texto: #2d2a26
+
+// Definición de variables SASS para los tamaños de fuente
+$h4: 1.5rem
+$texto-base: 1rem
+
+// Definición de variables SASS para las familias de fuentes
+$font-titulos: "Merriweather", serif
+$font-titulos-bold: 700
+$font-cuerpo: "Roboto", sans-serif
+$font-cuerpo-medium: 500
+
+body
+  background: url('../img/BGrecetas.jpg') no-repeat center center fixed
+  background-size: cover
+
+.filters
+  width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  border-top: 2px solid #000
+  border-bottom: 3px solid #000
+  padding: 10px
+  box-sizing: border-box
+  flex-wrap: wrap
+  background-color: #ffffff
+
+.filter-select
+  margin: 0 10px
+  color: $color-primario
+  border: 2px solid transparent
+  border-radius: 5px
+  padding: 5px 10px
+  font-size: 1rem
+  transition: all 0.3s ease
+
+  &:hover
+    border: 2px solid $color-primario
+    color: $color-texto
+
+  &:focus
+    outline: none
+    color: $color-texto
+    box-shadow: 0 0 5px $color-primario
+
+  option
+    color: $color-primario
+
+.recipe-container
+  width: 90%
+  border-radius: 50px
+  border: 5px solid #000
+  margin: 20px auto
+  background-color: #ffffff
+  margin-bottom: 100px
+  padding-bottom: 20px
+
+.recetas-grid
+  margin-top: 2rem
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: 2rem
+  justify-items: center
+  padding: 2rem
+
+.receta-card
+  width: 300px
+  height: 400px
+  border-radius: 10px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  background-color: #ffffff
+  transition: transform 0.3s
+  padding: 0 0 1rem 0
+
+  &:hover
+    transform: scale(1.05)
+
+.receta-img
+  width: 100%
+  height: 60%
+  border-radius: 10px 10px 0 0
+  background-size: cover
+  background-position: center
+
+.receta-title
+  font-family: $font-titulos
+  font-size: $h4
+  font-weight: $font-titulos-bold
+  color: $color-primario
+  text-align: center
+
+.receta-description
+  font-family: $font-cuerpo
+  font-size: $texto-base
+  color: $color-texto
+  text-align: center
+
+.receta-button
+  border: 2px solid $color-secundario
+  color: $color-secundario
+  background-color: transparent
+  padding: 0.5rem 1rem
+  border-radius: 5px
+  font-size: $texto-base
+  font-family: $font-cuerpo
+  font-weight: $font-cuerpo-medium
+  text-decoration: none
+  transition: background-color 0.3s, color 0.3s
+
+  &:hover
+    background-color: $color-secundario
+    color: #ffffff
+
+/* Responsive styles */
+@media (max-width: 576px)
+  .recetas-grid
+    grid-template-columns: 1fr
+
+  .receta-card
+    width: 100%
+
+  .filter-select
+    width: 100%
+    margin: 5px 0
+
+@media (min-width: 577px) and (max-width: 992px)
+  .recetas-grid
+    grid-template-columns: repeat(2, 1fr)
+
+  .receta-card
+    width: 100%
+
+  .filter-select
+    width: auto
+    margin: 5px

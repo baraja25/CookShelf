@@ -1,0 +1,176 @@
+// Definición de variables SASS para los colores
+$color-primario: #ff7f50 // Coral
+$color-secundario: #6b8e23 // Oliva
+$color-destacado: #ffd700 // Oro
+$color-neutral: #fffcf5 // Beige
+$color-texto: #2d2a26
+
+// Definición de variables SASS para los tamaños de fuente
+$h3: 1.75rem
+
+// Definición de variables SASS para las familias de fuentes
+$font-titulos: "Merriweather", serif
+$font-cuerpo: "Roboto", sans-serif
+$font-cuerpo-medium: 500
+
+.progress-bar
+  width: 100%
+  background-color: #ffffff
+  border-radius: 10px
+  overflow: hidden
+  margin-bottom: 2rem
+
+.progress-bar-fill
+  height: 20px
+  width: 0
+  background-color: $color-secundario
+  border-radius: 10px
+  transition: width 0.3s ease-in-out
+
+.main-content
+  width: 100vw
+  min-height: 140vh
+  padding: 5rem
+  background-image: url('../img/BGform.jpg')
+  background-size: cover
+  background-position: center
+  background-attachment: fixed
+  display: flex
+  justify-content: center
+  align-items: center
+
+.registration-form
+  height: auto
+  max-width: 50%
+  min-width: 591px
+  margin: auto
+  background-color: #e0dede91
+  backdrop-filter: blur(2px)
+  border: 2px solid $color-texto
+  border-radius: 50px
+  padding: 4rem
+  display: flex
+  flex-direction: column
+
+  h2
+    font-family: $font-titulos
+    font-size: 2rem
+    font-weight: 900
+    color: $color-texto
+    text-align: center
+
+  .form-group
+    display: grid
+    grid-template-columns: 1fr 1fr
+    justify-items: center
+    align-items: center
+    gap: 1rem
+    margin: 1rem 0
+
+    label
+      font-size: 1.2rem
+      font-weight: 600
+      color: $color-texto
+
+    input,
+    select,
+    textarea
+      padding: 0.5rem
+      border: 1px solid $color-texto
+      border-radius: 10px
+      font-size: 1rem
+
+      &:focus
+        outline: none
+        border-color: $color-primario
+        box-shadow: 0 0 5px $color-primario
+
+  .submit-button
+    align-self: center
+    margin-top: 3rem
+    background-color: $color-primario
+    color: #ffffff
+    border-radius: 5px
+    border: none
+    padding: 1rem 2rem
+    font-size: $h3
+    font-family: $font-cuerpo
+    font-weight: $font-cuerpo-medium
+    text-decoration: none
+    width: 100%
+    transition: background-color 0.3s, transform 0.3s
+
+    &:hover
+      background-color: $color-secundario
+      color: #ffffff
+
+.modal
+  display: absolute
+  position: fixed
+  z-index: 1
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0,0,0,0.4)
+  padding-top: 60px
+  
+
+.modal-content
+  background-color: #fefefe
+  margin: 5% auto
+  padding: 20px
+  border: 1px solid #888
+  width: 80%
+  max-width: 500px
+  text-align: center
+  border-radius: 10px
+
+.modal-close
+  color: #aaa
+  float: right
+  font-size: 28px
+  font-weight: bold
+
+  &:hover,
+  &:focus
+    color: black
+    text-decoration: none
+    cursor: pointer
+
+.modal-button
+  background-color: $color-primario
+  color: #ffffff
+  border: none
+  padding: 10px 20px
+  margin: 10px
+  border-radius: 5px
+  cursor: pointer
+
+  &:hover
+    background-color: $color-secundario
+
+/* Responsive styles */
+@media (max-width: 576px)
+  .registration-form
+    max-width: 90%
+    min-width: 325px
+    padding: 2rem
+
+    .form-group
+      grid-template-columns: 1fr
+
+    .submit-button
+      width: 100%
+
+@media (min-width: 577px) and (max-width: 992px)
+  .registration-form
+    max-width: 70%
+    min-width: 500px
+    padding: 3rem
+
+    .form-group
+      grid-template-columns: 1fr 1fr
+
+    .submit-button
+      width: 100%

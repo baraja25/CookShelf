@@ -4,20 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/reset.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/registro.css" />
+    <link rel="stylesheet" href="../sass/navbar.css" />
+    <link rel="stylesheet" href="../sass/footer.css" />
+    <link rel="stylesheet" href="../sass/registro.css" />
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>Registrate</title>
   </head>
   <body>
     <header class="navbar">
-      <img src="../img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo" />
+      <a href="../../index.html">
+        <img src="../img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo" />
+      </a>
       <nav>
         <ul class="navbar-list">
-          <li class="navbar-item"><a href="../index.html">Inicio</a></li>
           <li class="navbar-item">
-            <a href="../pages/SobreNosotros.html">Nosotros</a>
+            <a href="../pages/SobreNosotros.html">Sobre Nosotros</a>
           </li>
           <li class="navbar-item">
             <a href="../pages/recetas.html">Recetas</a>
@@ -34,7 +39,7 @@
     <main class="main-content">
       <section class="registration-form section-anterior">
         <h2>Formulario de Registro</h2>
-        <form action="#" method="post">
+        <form id="registration-form" action="#" method="post">
           <div class="form-group">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required />
@@ -75,17 +80,17 @@
           <button type="submit" class="submit-button">Registrarse</button>
         </form>
       </section>
+      <div id="modal-confirmacion" class="modal">
+        <div class="modal-content">
+          <span class="modal-close">&times;</span>
+          <p>¿Estás seguro de que deseas registrarte?</p>
+          <button id="confirmar-registro" class="modal-button">Confirmar</button>
+          <button id="cancelar-registro" class="modal-button">Cancelar</button>
+        </div>
+      </div>
     </main>
     <footer class="footer">
       <div class="footer-content">
-        <div class="footer-about">
-          <h3>Sobre Nosotros</h3>
-          <p>
-            Somos una plataforma dedicada a ayudarte a cocinar con los
-            ingredientes que tienes a mano. Encuentra recetas fáciles y
-            deliciosas basadas en lo que tienes en tu cocina.
-          </p>
-        </div>
         <div class="footer-newsletter">
           <h3 class="footer-newsletter-title">Suscríbete a nuestro boletín</h3>
           <form action="#" method="post">
@@ -135,45 +140,53 @@
     </footer>
 
     <script>
-      document
-        .querySelector(".registration-form")
-        .addEventListener("submit", function (event) {
-          let valid = true;
-          const email = document.getElementById("email");
-          const password = document.getElementById("password");
-          const confirmPassword = document.getElementById("confirm-password");
+      document.getElementById("registration-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        let valid = true;
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirm-password");
 
-          // Validar email
-          if (!email.value.includes("@")) {
-            alert("Por favor, introduce un correo electrónico válido.");
-            valid = false;
-          }
+        // Validar email
+        if (!email.value.includes("@")) {
+          alert("Por favor, introduce un correo electrónico válido.");
+          valid = false;
+        }
 
-          // Validar contraseñas
-          if (password.value !== confirmPassword.value) {
-            alert("Las contraseñas no coinciden.");
-            valid = false;
-          }
+        // Validar contraseñas
+        if (password.value !== confirmPassword.value) {
+          alert("Las contraseñas no coinciden.");
+          valid = false;
+        }
 
-          if (!valid) {
-            event.preventDefault(); // Evitar el envío del formulario
+        if (valid) {
+          document.getElementById("modal-confirmacion").style.display = "block";
+        }
+      });
+
+      document.getElementById("registration-form").addEventListener("input", function () {
+        const formElements = this.querySelectorAll("input, select, textarea");
+        let filledElements = 0;
+        formElements.forEach((element) => {
+          if (element.type !== "submit" && element.value.trim() !== "") {
+            filledElements++;
           }
         });
+        const progress = (filledElements / (formElements.length - 1)) * 100;
+        document.querySelector(".progress-bar-fill").style.width = progress + "%";
+      });
 
-      document
-        .querySelector(".registration-form")
-        .addEventListener("input", function () {
-          const formElements = this.querySelectorAll("input, select, textarea");
-          let filledElements = 0;
-          formElements.forEach((element) => {
-            if (element.type !== "submit" && element.value.trim() !== "") {
-              filledElements++;
-            }
-          });
-          const progress = (filledElements / (formElements.length - 1)) * 100;
-          document.querySelector(".progress-bar-fill").style.width =
-            progress + "%";
-        });
+      document.getElementById("confirmar-registro").addEventListener("click", function () {
+        document.getElementById("registration-form").submit();
+      });
+
+      document.getElementById("cancelar-registro").addEventListener("click", function () {
+        document.getElementById("modal-confirmacion").style.display = "none";
+      });
+
+      document.querySelector(".modal-close").addEventListener("click", function () {
+        document.getElementById("modal-confirmacion").style.display = "none";
+      });
     </script>
   </body>
 </html>

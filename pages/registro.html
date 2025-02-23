@@ -84,7 +84,9 @@
         <div class="modal-content">
           <span class="modal-close">&times;</span>
           <p>¿Estás seguro de que deseas registrarte?</p>
-          <button id="confirmar-registro" class="modal-button">Confirmar</button>
+          <button id="confirmar-registro" class="modal-button">
+            Confirmar
+          </button>
           <button id="cancelar-registro" class="modal-button">Cancelar</button>
         </div>
       </div>
@@ -140,52 +142,70 @@
     </footer>
 
     <script>
-      document.getElementById("registration-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        let valid = true;
-        const email = document.getElementById("email");
-        const password = document.getElementById("password");
-        const confirmPassword = document.getElementById("confirm-password");
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("registration-form");
+        const modal = (document.getElementById(
+          "modal-confirmacion"
+        ).style.display = "none");
 
-        // Validar email
-        if (!email.value.includes("@")) {
-          alert("Por favor, introduce un correo electrónico válido.");
-          valid = false;
-        }
+        const modalClose = document.querySelector(".modal-close");
+        const confirmarRegistro = document.getElementById("confirmar-registro");
+        const cancelarRegistro = document.getElementById("cancelar-registro");
+        const progressBarFill = document.querySelector(".progress-bar-fill");
 
-        // Validar contraseñas
-        if (password.value !== confirmPassword.value) {
-          alert("Las contraseñas no coinciden.");
-          valid = false;
-        }
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          let valid = true;
+          const email = document.getElementById("email");
+          const password = document.getElementById("password");
+          const confirmPassword = document.getElementById("confirm-password");
 
-        if (valid) {
-          document.getElementById("modal-confirmacion").style.display = "block";
-        }
-      });
+          // Validar email
+          if (!email.value.includes("@")) {
+            alert("Por favor, introduce un correo electrónico válido.");
+            valid = false;
+          }
 
-      document.getElementById("registration-form").addEventListener("input", function () {
-        const formElements = this.querySelectorAll("input, select, textarea");
-        let filledElements = 0;
-        formElements.forEach((element) => {
-          if (element.type !== "submit" && element.value.trim() !== "") {
-            filledElements++;
+          // Validar contraseñas
+          if (password.value !== confirmPassword.value) {
+            alert("Las contraseñas no coinciden.");
+            valid = false;
+          }
+
+          if (valid) {
+            modal.style.display = "block";
           }
         });
-        const progress = (filledElements / (formElements.length - 1)) * 100;
-        document.querySelector(".progress-bar-fill").style.width = progress + "%";
-      });
 
-      document.getElementById("confirmar-registro").addEventListener("click", function () {
-        document.getElementById("registration-form").submit();
-      });
+        form.addEventListener("input", function () {
+          const formElements = this.querySelectorAll("input, select, textarea");
+          let filledElements = 0;
+          formElements.forEach((element) => {
+            if (element.type !== "submit" && element.value.trim() !== "") {
+              filledElements++;
+            }
+          });
+          const progress = (filledElements / (formElements.length - 1)) * 100;
+          progressBarFill.style.width = progress + "%";
+        });
 
-      document.getElementById("cancelar-registro").addEventListener("click", function () {
-        document.getElementById("modal-confirmacion").style.display = "none";
-      });
+        confirmarRegistro.addEventListener("click", function () {
+          form.submit();
+        });
 
-      document.querySelector(".modal-close").addEventListener("click", function () {
-        document.getElementById("modal-confirmacion").style.display = "none";
+        cancelarRegistro.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+
+        modalClose.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+          if (event.target === modal) {
+            modal.style.display = "none";
+          }
+        });
       });
     </script>
   </body>

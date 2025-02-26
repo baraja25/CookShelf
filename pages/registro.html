@@ -178,14 +178,14 @@
         });
 
         form.addEventListener("input", function () {
-          const formElements = this.querySelectorAll("input, select, textarea");
+          const formElements = this.querySelectorAll("input[type='text'], input[type='email'], input[type='password'], input[type='date']");
           let filledElements = 0;
           formElements.forEach((element) => {
-            if (element.type !== "submit" && element.value.trim() !== "") {
+            if (element.value.trim() !== "") {
               filledElements++;
             }
           });
-          const progress = (filledElements / (formElements.length - 1)) * 100;
+          const progress = (filledElements / formElements.length) * 100;
           progressBarFill.style.width = progress + "%";
         });
 

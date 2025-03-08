@@ -251,6 +251,7 @@ body {
     padding: 5px;
   }
   .ingredientes {
+    padding-left: 0;
     min-height: 500px;
   }
   .lista-ingredientes {

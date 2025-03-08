@@ -1,0 +1,119 @@
+@use '../variables' as vars
+@use '../mixins' as mix
+@use '../language'
+
+// Header del blog
+.blog-header
+  text-align: center
+  padding: 3rem 1rem
+  background-color: #ede9d0  // Versión clara de color-primary
+  margin-bottom: 2rem
+  
+  h1
+    font-family: vars.$font-title
+    font-size: vars.$size-h1
+    margin-bottom: 1rem
+    color: vars.$color-primary
+    
+  p
+    font-size: 1.2rem
+    color: vars.$color-text
+    max-width: 700px
+    margin: 0 auto
+
+// Posts del blog
+.blog-posts
+  max-width: 900px
+  margin: 0 auto
+  padding: 0 1rem
+
+// Post individual
+.blog-post
+  display: flex
+  margin-bottom: 3rem
+  background-color: vars.$color-white
+  border-radius: 8px
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  overflow: hidden
+  
+  &-img
+    width: 30%
+    object-fit: cover
+    
+  &-content
+    padding: 1.5rem
+    width: 70%
+    
+  h2
+    font-family: vars.$font-title
+    font-size: vars.$size-h3
+    margin-bottom: 0.5rem
+    color: vars.$color-primary
+    
+  &-meta
+    font-size: 0.9rem
+    color: #777
+    margin-bottom: 1rem
+    
+  &-excerpt
+    font-size: 1rem
+    line-height: 1.5
+    margin-bottom: 1rem
+    color: vars.$color-text
+    
+  &-link
+    display: inline-block
+    color: vars.$color-secondary
+    font-weight: 500
+    text-decoration: none
+    transition: color 0.3s
+    
+    &:hover
+      color: vars.$color-primary
+
+// Categorías
+.blog-categories
+  max-width: 900px
+  margin: 2rem auto 4rem
+  padding: 1.5rem
+  background-color: vars.$color-white
+  border-radius: 8px
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  
+  h2
+    font-family: vars.$font-title
+    font-size: vars.$size-h4
+    margin-bottom: 1rem
+    color: vars.$color-primary
+
+// Estilos de categorías individuales
+.category-tags
+  display: flex
+  flex-wrap: wrap
+  gap: 0.5rem
+
+.category-tag
+  display: inline-block
+  padding: 0.4rem 0.8rem
+  background-color: #dff1ff
+  color: vars.$color-primary
+  border-radius: 20px
+  font-size: 0.9rem
+  text-decoration: none
+  transition: all 0.3s
+  
+  &:hover
+    background-color: vars.$color-primary
+    color: vars.$color-white
+
+// Responsive
+@media (max-width: vars.$breakpoint-small)
+  .blog-post
+    flex-direction: column
+    
+    &-img
+      width: 100%
+      height: 200px
+    
+    &-content
+      width: 100%

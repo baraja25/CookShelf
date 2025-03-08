@@ -1,19 +1,12 @@
-// Definición de variables SASS para los colores
-$color-primario: #ff7f50 // Coral
-$color-secundario: #6b8e23 // Oliva
-$color-destacado: #ffd700 // Oro
-$color-neutral: #fffcf5 // Beige
-$color-texto: #2d2a26
+// Importar variables y mixins globales
+@use '../variables' as vars
+@use '../mixins' as mix
+@use '../language'
 
-// Definición de variables SASS para los tamaños de fuente
-$h4: 1.5rem
-$texto-base: 1rem
-
-// Definición de variables SASS para las familias de fuentes
-$font-titulos: "Merriweather", serif
-$font-titulos-bold: 700
-$font-cuerpo: "Roboto", sans-serif
-$font-cuerpo-medium: 500
+// Componentes
+@use '../components/navbar' as navbar
+@use '../components/footer' as footer
+@use '../components/cards' as cards
 
 body
   background: url('../img/BGrecetas.jpg') no-repeat center center fixed
@@ -29,35 +22,35 @@ body
   padding: 10px
   box-sizing: border-box
   flex-wrap: wrap
-  background-color: #ffffff
+  background-color: vars.$color-white
 
 .filter-select
   margin: 0 10px
-  color: $color-primario
+  color: vars.$color-text
   border: 2px solid transparent
   border-radius: 5px
   padding: 5px 10px
-  font-size: 1rem
+  font-size: vars.$size-base
   transition: all 0.3s ease
 
   &:hover
-    border: 2px solid $color-primario
-    color: $color-texto
+    border: 2px solid vars.$color-primary
+    color: vars.$color-text
 
   &:focus
     outline: none
-    color: $color-texto
-    box-shadow: 0 0 5px $color-primario
+    color: vars.$color-text
+    box-shadow: 0 0 5px vars.$color-primary
 
   option
-    color: $color-primario
+    color: vars.$color-primary
 
 .recipe-container
   width: 90%
   border-radius: 50px
-  border: 5px solid #000
+  border: 5px solid vars.$color-black
   margin: 20px auto
-  background-color: #ffffff
+  background-color: vars.$color-white
   margin-bottom: 100px
   padding-bottom: 20px
 
@@ -78,7 +71,7 @@ body
   flex-direction: column
   align-items: center
   justify-content: space-between
-  background-color: #ffffff
+  background-color: vars.$color-white
   transition: transform 0.3s
   padding: 0 0 1rem 0
 
@@ -93,36 +86,36 @@ body
   background-position: center
 
 .receta-title
-  font-family: $font-titulos
-  font-size: $h4
-  font-weight: $font-titulos-bold
-  color: $color-primario
+  font-family: vars.$font-title
+  font-size: vars.$size-h4
+  font-weight: vars.$font-weight-bold
+  color: vars.$color-primary
   text-align: center
 
 .receta-description
-  font-family: $font-cuerpo
-  font-size: $texto-base
-  color: $color-texto
+  font-family: vars.$font-body
+  font-size: vars.$size-base
+  color: vars.$color-text
   text-align: center
 
 .receta-button
-  border: 2px solid $color-secundario
-  color: $color-secundario
+  border: 2px solid vars.$color-secondary
+  color: vars.$color-secondary
   background-color: transparent
   padding: 0.5rem 1rem
   border-radius: 5px
-  font-size: $texto-base
-  font-family: $font-cuerpo
-  font-weight: $font-cuerpo-medium
+  font-size: vars.$size-base
+  font-family: vars.$font-body
+  font-weight: vars.$font-weight-medium
   text-decoration: none
   transition: background-color 0.3s, color 0.3s
 
   &:hover
-    background-color: $color-secundario
-    color: #ffffff
+    background-color: vars.$color-secondary
+    color: vars.$color-white
 
 /* Responsive styles */
-@media (max-width: 576px)
+@include mix.breakpoint("small")
   .recetas-grid
     grid-template-columns: 1fr
 
@@ -133,7 +126,7 @@ body
     width: 100%
     margin: 5px 0
 
-@media (min-width: 577px) and (max-width: 992px)
+@include mix.breakpoint("medium")
   .recetas-grid
     grid-template-columns: repeat(2, 1fr)
 

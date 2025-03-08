@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/reset.css" />
-    <link rel="stylesheet" href="../sass/navbar.css" />
-    <link rel="stylesheet" href="../sass/footer.css" />
-    <link rel="stylesheet" href="../sass/registro.css" />
+    <link rel="stylesheet" href="../sass/components/navbar.css" />
+    <link rel="stylesheet" href="../sass//components/footer.css" />
+    <link rel="stylesheet" href="../sass/pages/registro.css" />
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
@@ -19,45 +19,63 @@
       <a href="../index.html">
         <img src="../img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo" />
       </a>
+      <div class="language-selector">
+        <button class="language-btn" data-lang="es">ES</button>
+        <span>|</span>
+        <button class="language-btn" data-lang="en">EN</button>
+      </div>
       <nav>
         <ul class="navbar-list">
           <li class="navbar-item">
-            <a href="../pages/SobreNosotros.html">Sobre Nosotros</a>
+            <a href="../pages/SobreNosotros.html" data-i18n="navSobreNosotros"
+              >Sobre Nosotros</a
+            >
           </li>
           <li class="navbar-item">
-            <a href="../pages/recetas.html">Recetas</a>
+            <a href="../pages/recetas.html" data-i18n="navRecetas">Recetas</a>
           </li>
           <li class="navbar-item">
-            <a href="../pages/recetaDia.html">Receta del dia</a>
+            <a href="../pages/recetaDia.html" data-i18n="navRecetaDia"
+              >Receta del día</a
+            >
           </li>
           <li class="navbar-item">
-            <a href="../pages/registro.html">Registrate</a>
+            <a href="../pages/blog.html" data-i18n="navBlog">Blog Culinario</a>
+          </li>
+          <li class="navbar-item">
+            <a href="../pages/registro.html" data-i18n="navRegistro"
+              >Registrate</a
+            >
           </li>
         </ul>
       </nav>
     </header>
     <main class="main-content">
       <section class="registration-form section-anterior">
-        <h2>Formulario de Registro</h2>
+        <h2 data-i18n="formTitle">Formulario de Registro</h2>
         <form id="registration-form" action="#" method="post">
           <div class="form-group">
-            <label for="nombre">Nombre:</label>
+            <label for="nombre" data-i18n="labelNombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required />
           </div>
           <div class="form-group">
-            <label for="apellido">Apellido:</label>
+            <label for="apellido" data-i18n="labelApellido">Apellido:</label>
             <input type="text" id="apellido" name="apellido" required />
           </div>
           <div class="form-group">
-            <label for="email">Correo Electrónico:</label>
+            <label for="email" data-i18n="labelEmail"
+              >Correo Electrónico:</label
+            >
             <input type="email" id="email" name="email" required />
           </div>
           <div class="form-group">
-            <label for="password">Contraseña:</label>
+            <label for="password" data-i18n="labelPassword">Contraseña:</label>
             <input type="password" id="password" name="password" required />
           </div>
           <div class="form-group">
-            <label for="confirm-password">Confirmar Contraseña:</label>
+            <label for="confirm-password" data-i18n="labelConfirmPassword"
+              >Confirmar Contraseña:</label
+            >
             <input
               type="password"
               id="confirm-password"
@@ -66,7 +84,9 @@
             />
           </div>
           <div class="form-group">
-            <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+            <label for="fecha-nacimiento" data-i18n="labelFechaNacimiento"
+              >Fecha de Nacimiento:</label
+            >
             <input
               type="date"
               id="fecha-nacimiento"
@@ -74,27 +94,44 @@
               required
             />
           </div>
-          <div class="progress-bar">
-            <div class="progress-bar-fill"></div>
-          </div>
-          <button type="submit" class="submit-button">Registrarse</button>
+          <button
+            type="submit"
+            class="submit-button"
+            data-i18n="btnRegistrarse"
+          >
+            Registrarse
+          </button>
         </form>
       </section>
       <div id="modal-confirmacion" class="modal">
         <div class="modal-content">
           <span class="modal-close">&times;</span>
-          <p>¿Estás seguro de que deseas registrarte?</p>
-          <button id="confirmar-registro" class="modal-button">
+          <p data-i18n="modalConfirmacion">
+            ¿Estás seguro de que deseas registrarte?
+          </p>
+          <button
+            id="confirmar-registro"
+            class="modal-button"
+            data-i18n="btnConfirmar"
+          >
             Confirmar
           </button>
-          <button id="cancelar-registro" class="modal-button">Cancelar</button>
+          <button
+            id="cancelar-registro"
+            class="modal-button"
+            data-i18n="btnCancelar"
+          >
+            Cancelar
+          </button>
         </div>
       </div>
     </main>
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-newsletter">
-          <h3 class="footer-newsletter-title">Suscríbete a nuestro boletín</h3>
+          <h3 class="footer-newsletter-title" data-i18n="footerNewsletter">
+            Suscríbete a nuestro boletín
+          </h3>
           <form action="#" method="post">
             <input
               type="email"
@@ -102,18 +139,19 @@
               placeholder="Tu correo electrónico"
               required
               class="footer-newsletter-input"
+              data-i18n="footerEmail"
             />
-            <button type="submit" class="footer-newsletter-button">
+            <button type="submit" class="footer-newsletter-button" data-i18n="footerSuscribirse">Suscribirse</button>
               Suscribirse
             </button>
           </form>
         </div>
         <ul class="footer-links-list">
           <li class="footer-links-item">
-            <a href="">Política de Privacidad</a>
+            <a href="" data-i18n="footerPrivacidad">Política de Privacidad</a>
           </li>
-          <li class="footer-links-item"><a href="">Términos de Servicio</a></li>
-          <li class="footer-links-item"><a href="">Contacto</a></li>
+          <li class="footer-links-item"><a href="" data-i18n="footerTerminos">Términos de Servicio</a></li>
+          <li class="footer-links-item"><a href="" data-i18n="footerContacto">Contacto</a></li>
         </ul>
         <div class="footer-social">
           <a href="https://www.facebook.com" target="_blank"
@@ -136,9 +174,7 @@
           /></a>
         </div>
       </div>
-      <p class="footer-copyright">
-        &copy; © 2025 CookShelf. Todos los derechos reservados..
-      </p>
+      <p class="footer-copyright" data-i18n="footerCopyright">&copy; © 2025 CookShelf. Todos los derechos reservados.</p>
     </footer>
 
     <script>
@@ -178,7 +214,9 @@
         });
 
         form.addEventListener("input", function () {
-          const formElements = this.querySelectorAll("input[type='text'], input[type='email'], input[type='password'], input[type='date']");
+          const formElements = this.querySelectorAll(
+            "input[type='text'], input[type='email'], input[type='password'], input[type='date']"
+          );
           let filledElements = 0;
           formElements.forEach((element) => {
             if (element.value.trim() !== "") {
@@ -208,5 +246,6 @@
         });
       });
     </script>
+    <script src="../js/translations.js"></script>
   </body>
 </html>

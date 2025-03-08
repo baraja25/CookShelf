@@ -1,0 +1,67 @@
+@use '../variables' as vars
+@use '../mixins' as mix
+
+// Lista de tipos de tarjetas
+$card-types: "recipe", "ingredient", "blog", "info"
+
+// Estilos base para tarjetas
+.card
+  @include mix.card()
+  margin-bottom: 1.5rem
+
+// Iterando sobre los tipos de tarjeta para crear variantes
+@each $type in $card-types
+  .#{$type}-card
+    @if $type == "recipe"
+      @include mix.card("elevated")
+      width: 300px
+      height: 400px
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+      padding-bottom: 1rem
+      
+    @else if $type == "ingredient"
+      @include mix.card("basic", 0.75rem)
+      width: 140px
+      height: 90px
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      gap: 0.75rem
+      
+      &.selected
+        background-color: vars.$color-primary
+        color: vars.$color-white
+      
+    @else if $type == "blog"
+      @include mix.card("elevated")
+      display: flex
+      margin-bottom: 2rem
+      
+    @else if $type == "info"
+      @include mix.card("flat")
+      text-align: center
+      padding: 2rem
+      
+// Aplicar estilos responsivos a las tarjetas
+@include mix.breakpoint("small")
+  @each $type in $card-types
+    .#{$type}-card
+      @if $type == "recipe" or $type == "info"
+        width: 100%
+      @else if $type == "blog"
+        flex-direction: column
+        
+        .blog-post-img
+          width: 100%
+          height: 200px
+          
+        .blog-post-content
+          width: 100%
+      
+@include mix.breakpoint("medium")
+  .recipe-card
+    width: 90%

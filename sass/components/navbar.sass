@@ -1,0 +1,96 @@
+@use '../variables' as vars
+@use '../mixins' as mix
+
+// Mapa de estados de navegación
+$nav-states: ("default", "active", "hover", "mobile")
+
+// Estilos para la barra de navegación
+.navbar
+  @include mix.flex($justify: space-between, $align: center)
+  padding: 0 2rem
+  background-color: vars.$color-white
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  position: sticky
+  top: 0
+  z-index: 100
+
+  .language-selector
+    @include mix.flex($gap: 0.5rem)
+    align-items: center
+    margin-right: 1rem
+
+  .language-btn
+    background: none
+    border: none
+    color: vars.$color-text
+    font-weight: 500
+    cursor: pointer
+    padding: 0.5rem
+    transition: color 0.3s ease
+
+    &:hover
+      color: vars.$color-text
+
+    &.active
+      color: vars.$color-white
+  
+  &-logo
+    height: 100px
+    width: auto
+    
+  &-list
+    @include mix.flex($gap: 1.5rem)
+    list-style: none
+  
+  &-item
+    position: relative
+    
+    a
+      color: vars.$color-text
+      text-decoration: none
+      font-weight: 500
+      font-size: vars.$size-h5
+      padding: 0.5rem 0
+      position: relative
+      
+      
+      @each $state in $nav-states
+        @if $state == "hover"
+          &:hover
+            color: vars.$color-primary
+            
+            &::after
+              width: 100%
+        @else if $state == "active"
+          &.active
+            color: vars.$color-primary
+            
+            &::after
+              width: 100%
+      
+      &::after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 0
+        height: 2px
+        background-color: vars.$color-primary
+        transition: width 0.3s ease
+
+// Media query para móvil
+@include mix.breakpoint("small")
+  .navbar
+    padding: 1rem
+    flex-direction: column
+    
+    &-logo
+      margin-bottom: 1rem
+      
+    &-list
+      width: 100%
+      flex-direction: column
+      align-items: center
+      
+      .navbar-item
+        margin-bottom: 0.5rem

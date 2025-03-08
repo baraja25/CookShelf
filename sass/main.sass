@@ -1,0 +1,41 @@
+@use 'variables' as vars
+@use 'mixins' as mix
+@use 'language'
+
+// Estilos generales
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+  
+body
+  font-family: vars.$font-body
+  color: vars.$color-text
+  background-color: vars.$color-neutral
+  line-height: 1.5
+
+// Aplicar transiciones a elementos seleccionados
+button, a, .card, .language-btn, .recipe-card, .ingrediente-card
+  transition: all 0.3s ease
+    
+// Botones
+.btn-primary
+  @include mix.button-primary
+
+.btn-secondary
+  @include mix.button-secondary
+
+// Tarjetas
+.card
+  @include mix.card-basic
+
+// Contenedores
+.container
+  width: 90%
+  max-width: 1200px
+  margin: 0 auto
+  padding: 1rem
+  
+  @include mix.small-screen
+    width: 95%
+    padding: 0.5rem

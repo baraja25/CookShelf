@@ -1,21 +1,16 @@
-// Definición de variables SASS para los colores
-$color-primario: #ff7f50 // Coral
-$color-secundario: #6b8e23 // Oliva
-$color-destacado: #ffd700 // Oro
-$color-neutral: #fffcf5 // Beige
-$color-texto: #2d2a26
+// Corregir las rutas de importación 
+@use '../variables' as vars
+@use '../mixins' as mix
+@use '../language'
 
-// Definición de variables SASS para los tamaños de fuente
-$h3: 1.75rem
-
-// Definición de variables SASS para las familias de fuentes
-$font-titulos: "Merriweather", serif
-$font-cuerpo: "Roboto", sans-serif
-$font-cuerpo-medium: 500
+// Componentes
+@use '../components/navbar' as navbar
+@use '../components/footer' as footer
+@use '../components/cards' as cards
 
 .progress-bar
   width: 100%
-  background-color: #ffffff
+  background-color: vars.$color-white
   border-radius: 10px
   overflow: hidden
   margin-bottom: 2rem
@@ -23,7 +18,7 @@ $font-cuerpo-medium: 500
 .progress-bar-fill
   height: 20px
   width: 0
-  background-color: $color-secundario
+  background-color: vars.$color-secondary
   border-radius: 10px
   transition: width 0.3s ease-in-out
 
@@ -31,7 +26,7 @@ $font-cuerpo-medium: 500
   width: 100vw
   min-height: 140vh
   padding: 5rem
-  background-image: url('../img/BGform.jpg')
+  background-image: url('../../img/BGform.jpg')
   background-size: cover
   background-position: center
   background-attachment: fixed
@@ -46,17 +41,17 @@ $font-cuerpo-medium: 500
   margin: auto
   background-color: #e0dede91
   backdrop-filter: blur(2px)
-  border: 2px solid $color-texto
+  border: 2px solid vars.$color-text
   border-radius: 50px
   padding: 4rem
   display: flex
   flex-direction: column
 
   h2
-    font-family: $font-titulos
+    font-family: vars.$font-title
     font-size: 2rem
     font-weight: 900
-    color: $color-texto
+    color: vars.$color-text
     text-align: center
 
   .form-group
@@ -70,39 +65,39 @@ $font-cuerpo-medium: 500
     label
       font-size: 1.2rem
       font-weight: 600
-      color: $color-texto
+      color: vars.$color-text
 
     input,
     select,
     textarea
       padding: 0.5rem
-      border: 1px solid $color-texto
+      border: 1px solid vars.$color-text
       border-radius: 10px
       font-size: 1rem
 
       &:focus
         outline: none
-        border-color: $color-primario
-        box-shadow: 0 0 5px $color-primario
+        border-color: vars.$color-primary
+        box-shadow: 0 0 5px vars.$color-primary
 
   .submit-button
     align-self: center
     margin-top: 3rem
-    background-color: $color-primario
-    color: #ffffff
+    background-color: vars.$color-primary
+    color: vars.$color-white
     border-radius: 5px
     border: none
     padding: 1rem 2rem
-    font-size: $h3
-    font-family: $font-cuerpo
-    font-weight: $font-cuerpo-medium
+    font-size: vars.$size-h3
+    font-family: vars.$font-body
+    font-weight: vars.$font-weight-medium
     text-decoration: none
     width: 100%
     transition: background-color 0.3s, transform 0.3s
 
     &:hover
-      background-color: $color-secundario
-      color: #ffffff
+      background-color: vars.$color-secondary
+      color: vars.$color-white
 
 .modal
   display: absolute
@@ -134,13 +129,13 @@ $font-cuerpo-medium: 500
 
   &:hover,
   &:focus
-    color: black
+    color: vars.$color-black
     text-decoration: none
     cursor: pointer
 
 .modal-button
-  background-color: $color-primario
-  color: #ffffff
+  background-color: vars.$color-primary
+  color: vars.$color-white
   border: none
   padding: 10px 20px
   margin: 10px
@@ -148,10 +143,10 @@ $font-cuerpo-medium: 500
   cursor: pointer
 
   &:hover
-    background-color: $color-secundario
+    background-color: vars.$color-secondary
 
 /* Responsive styles */
-@media (max-width: 576px)
+@include mix.small-screen
   .registration-form
     max-width: 90%
     min-width: 325px
@@ -163,7 +158,7 @@ $font-cuerpo-medium: 500
     .submit-button
       width: 100%
 
-@media (min-width: 577px) and (max-width: 992px)
+@include mix.medium-screen
   .registration-form
     max-width: 70%
     min-width: 500px

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../sass/components/navbar.css" />
+    <link rel="stylesheet" href="../sass/components/footer.css" />
+    <link rel="stylesheet" href="../sass/pages/blog.css" />
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Blog Culinario - CookShelf</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="../index.html">
+        <img src="../img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo" />
+      </a>
+
+      <nav>
+        <ul class="navbar-list">
+          <div class="language-selector">
+            <button class="language-btn" data-lang="es">ES</button>
+            <span>|</span>
+            <button class="language-btn" data-lang="en">EN</button>
+          </div>
+          <li class="navbar-item">
+            <a href="SobreNosotros.html" data-i18n="navSobreNosotros"
+              >Sobre Nosotros</a
+            >
+          </li>
+          <li class="navbar-item">
+            <a href="recetas.html" data-i18n="navRecetas">Recetas</a>
+          </li>
+          <li class="navbar-item">
+            <a href="recetaDia.html" data-i18n="navRecetaDia">Receta del día</a>
+          </li>
+          <li class="navbar-item">
+            <a href="blog.html" data-i18n="navBlog">Blog Culinario</a>
+          </li>
+          <li class="navbar-item">
+            <a href="registro.html" data-i18n="navRegistro">Registrate</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="blog-header">
+        <h1 data-i18n="blogTitle">Blog Culinario</h1>
+        <p data-i18n="blogDescription">
+          Descubre técnicas, tendencias y secretos gastronómicos
+        </p>
+      </section>
+
+      <section class="blog-posts">
+        <article class="blog-post">
+          <img
+            src="../img/blog/post1.jpg"
+            alt="Técnicas de corte"
+            class="blog-post-img"
+          />
+          <div class="blog-post-content">
+            <h2>Técnicas de corte profesionales</h2>
+            <p class="blog-post-meta">12 febrero, 2025 | Chef María González</p>
+            <p class="blog-post-excerpt">
+              Aprende las técnicas de corte que usan los chefs profesionales
+              para mejorar tu eficiencia en la cocina y presentación de
+              platos...
+            </p>
+            <a href="#" class="blog-post-link" data-i18n="readMore">Leer más</a>
+          </div>
+        </article>
+
+        <article class="blog-post">
+          <img
+            src="../img/blog/post2.jpg"
+            alt="Especias esenciales"
+            class="blog-post-img"
+          />
+          <div class="blog-post-content">
+            <h2>Las 10 especias esenciales para tu cocina</h2>
+            <p class="blog-post-meta">5 febrero, 2025 | Chef Antonio Ruiz</p>
+            <p class="blog-post-excerpt">
+              Descubre qué especias no pueden faltar en tu cocina y cómo
+              utilizarlas para transformar tus platos cotidianos...
+            </p>
+            <a href="#" class="blog-post-link" data-i18n="readMore">Leer más</a>
+          </div>
+        </article>
+
+        <article class="blog-post">
+          <img
+            src="../img/blog/post3.jpg"
+            alt="Batch cooking"
+            class="blog-post-img"
+          />
+          <div class="blog-post-content">
+            <h2>Batch cooking: cocina una vez, come toda la semana</h2>
+            <p class="blog-post-meta">
+              28 enero, 2025 | Nutricionista Laura Sánchez
+            </p>
+            <p class="blog-post-excerpt">
+              Aprende a organizar tu cocina semanal con estas técnicas de batch
+              cooking que te ahorrarán tiempo y dinero...
+            </p>
+            <a href="#" class="blog-post-link" data-i18n="readMore">Leer más</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="blog-categories">
+        <h2 data-i18n="blogCategories">Categorías</h2>
+        <div class="category-tags">
+          <a href="#" class="category-tag">Técnicas</a>
+          <a href="#" class="category-tag">Nutrición</a>
+          <a href="#" class="category-tag">Utensilios</a>
+          <a href="#" class="category-tag">Cocinas del mundo</a>
+          <a href="#" class="category-tag">Reseñas</a>
+          <a href="#" class="category-tag">Consejos</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-newsletter">
+          <h3 class="footer-newsletter-title" data-i18n="footerNewsletter">
+            Suscríbete a nuestro boletín
+          </h3>
+          <form action="#" method="post">
+            <input
+              type="email"
+              name="email"
+              placeholder="Tu correo electrónico"
+              required
+              class="footer-newsletter-input"
+              data-i18n="footerEmail"
+            />
+            <button
+              type="submit"
+              class="footer-newsletter-button"
+              data-i18n="footerSuscribirse"
+            >
+              Suscribirse
+            </button>
+          </form>
+        </div>
+        <ul class="footer-links-list">
+          <li class="footer-links-item">
+            <a href="#" data-i18n="footerPrivacidad">Política de Privacidad</a>
+          </li>
+          <li class="footer-links-item">
+            <a href="#" data-i18n="footerTerminos">Términos de Servicio</a>
+          </li>
+          <li class="footer-links-item">
+            <a href="#" data-i18n="footerContacto">Contacto</a>
+          </li>
+        </ul>
+        <div class="footer-social">
+          <a href="https://www.facebook.com" target="_blank"
+            ><img
+              src="../img/icons/facebook.png"
+              alt="Facebook"
+              class="footer-social-icon"
+          /></a>
+          <a href="https://www.twitter.com" target="_blank"
+            ><img
+              src="../img/icons/twitter.png"
+              alt="Twitter"
+              class="footer-social-icon"
+          /></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><img
+              src="../img/icons/instagram.png"
+              alt="Instagram"
+              class="footer-social-icon"
+          /></a>
+        </div>
+      </div>
+      <p class="footer-copyright" data-i18n="footerCopyright">
+        © 2025 CookShelf. Todos los derechos reservados.
+      </p>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+  </body>
+</html>

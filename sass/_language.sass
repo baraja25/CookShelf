@@ -1,0 +1,59 @@
+@use 'variables' as vars
+
+// Estilos del selector de idiomas
+.language-selector
+  display: flex
+  align-items: center
+  gap: 0.5rem
+  margin-right: 1rem
+  
+  span
+    color: vars.$color-text
+
+// Botón para español
+.language-btn[data-lang="es"]
+  background-color: transparent
+  color: vars.$color-text
+  border: none
+  padding: 0.25rem 0.5rem
+  border-radius: 4px
+  cursor: pointer
+  text-transform: uppercase
+  font-weight: 600
+  transition: all 0.3s ease
+  
+  &:hover
+    background-color: vars.$color-primary
+    color: vars.$color-white
+    transform: scale(1.05)
+    
+  &.active
+    background-color: vars.$color-primary
+    color: vars.$color-white
+
+// Botón para inglés
+.language-btn[data-lang="en"]
+  background-color: transparent
+  color: vars.$color-text
+  border: none
+  padding: 0.25rem 0.5rem
+  border-radius: 4px
+  cursor: pointer
+  text-transform: uppercase
+  font-weight: 600
+  transition: all 0.3s ease
+  
+  &:hover
+    background-color: vars.$color-primary
+    color: vars.$color-white
+    transform: scale(1.05)
+    
+  &.active
+    background-color: vars.$color-primary
+    color: vars.$color-white
+
+// Responsive
+@media (max-width: vars.$breakpoint-small)
+  .language-selector
+    margin: 0.5rem 0
+    justify-content: center

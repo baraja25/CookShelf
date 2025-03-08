@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="sass/styles.css" />
-    <link rel="stylesheet" href="sass/navbar.css" />
-    <link rel="stylesheet" href="sass/footer.css" />
+    <link rel="stylesheet" href="sass//pages/styles.css" />
+    <link rel="stylesheet" href="sass/components/navbar.css" />
+    <link rel="stylesheet" href="sass/components/footer.css" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>CookShelf</title>
   </head>
   <body>
@@ -15,17 +18,31 @@
       <a href="index.html">
         <img src="img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo" />
       </a>
-      <nav>
+      <nav>  
         <ul class="navbar-list">
+          <div class="language-selector">
+            <button class="language-btn" data-lang="es">ES</button>
+            <span>|</span>
+            <button class="language-btn" data-lang="en">EN</button>
+          </div>
           <li class="navbar-item">
-            <a href="pages/SobreNosotros.html">Sobre Nosotros</a>
+            <a href="pages/SobreNosotros.html" data-i18n="navSobreNosotros"
+              >Sobre Nosotros</a
+            >
           </li>
-          <li class="navbar-item"><a href="pages/recetas.html">Recetas</a></li>
           <li class="navbar-item">
-            <a href="pages/recetaDia.html">Receta del dia</a>
+            <a href="pages/recetas.html" data-i18n="navRecetas">Recetas</a>
           </li>
           <li class="navbar-item">
-            <a href="pages/registro.html">Registrate</a>
+            <a href="pages/recetaDia.html" data-i18n="navRecetaDia"
+              >Receta del día</a
+            >
+          </li>
+          <li class="navbar-item">
+            <a href="pages/blog.html" data-i18n="navBlog">Blog Culinario</a>
+          </li>
+          <li class="navbar-item">
+            <a href="pages/registro.html" data-i18n="navRegistro">Registrate</a>
           </li>
         </ul>
       </nav>
@@ -33,18 +50,21 @@
     <main>
       <section class="hero">
         <img src="img/LogoWhite.png" alt="Hero" class="hero-img" />
-        <h1 class="hero-title">CookShelf</h1>
-        <p class="hero-description">
+        <h1 class="hero-title" data-i18n="heroTitle">CookShelf</h1>
+        <p class="hero-description" data-i18n="heroDescription">
           ¡Empieza a cocinar con lo que tienes hoy mismo!
         </p>
-        <a href="" class="hero-button">Comenzar</a>
+        <a href="" class="hero-button" data-i18n="heroButton">Comenzar</a>
       </section>
       <section class="categorias">
-        <h1 class="categorias-title">¿Qué hay en tu cocina?</h1>
+        <h1 class="categorias-title" data-i18n="categoriasTitle">
+          ¿Qué hay en tu cocina?
+        </h1>
         <div class="categorias-search">
           <input
             type="text"
             class="categorias-input"
+            data-i18n="categoriasSearch"
             placeholder="Buscar ingredientes..."
           />
         </div>
@@ -55,7 +75,7 @@
               alt="Tomate"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Tomate</p>
+            <p class="ingrediente-text" data-i18n="ingredTomato">Tomate</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Cebolla">
             <img
@@ -63,7 +83,7 @@
               alt="Cebolla"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Cebolla</p>
+            <p class="ingrediente-text" data-i18n="ingredOnion">Cebolla</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Ajo">
             <img
@@ -71,7 +91,7 @@
               alt="Ajo"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Ajo</p>
+            <p class="ingrediente-text" data-i18n="ingredGarlic">Ajo</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Zanahoria">
             <img
@@ -79,7 +99,7 @@
               alt="Zanahoria"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Zanahoria</p>
+            <p class="ingrediente-text" data-i18n="ingredCarrot">Zanahoria</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Patata">
             <img
@@ -87,7 +107,7 @@
               alt="Patata"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Patata</p>
+            <p class="ingrediente-text" data-i18n="ingredPotato">Patata</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Pimiento">
             <img
@@ -95,7 +115,7 @@
               alt="Pimiento"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Pimiento</p>
+            <p class="ingrediente-text" data-i18n="ingredPepper">Pimiento</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Pollo">
             <img
@@ -103,7 +123,7 @@
               alt="Pollo"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Pollo</p>
+            <p class="ingrediente-text" data-i18n="ingredChicken">Pollo</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Carne de res">
             <img
@@ -111,7 +131,7 @@
               alt="Carne de res"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Carne de res</p>
+            <p class="ingrediente-text" data-i18n="ingredBeef">Carne de res</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Pescado">
             <img
@@ -119,7 +139,7 @@
               alt="Pescado"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Pescado</p>
+            <p class="ingrediente-text" data-i18n="ingredFish">Pescado</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Queso">
             <img
@@ -127,7 +147,7 @@
               alt="Queso"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Queso</p>
+            <p class="ingrediente-text" data-i18n="ingredCheese">Queso</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Leche">
             <img
@@ -135,19 +155,21 @@
               alt="Leche"
               class="ingrediente-icon"
             />
-            <p class="ingrediente-text">Leche</p>
+            <p class="ingrediente-text" data-i18n="ingredMilk">Leche</p>
           </div>
           <div class="ingrediente-card" data-ingrediente="Huevo">
             <img src="img/icons/egg.png" alt="Huevo" class="ingrediente-icon" />
-            <p class="ingrediente-text">Huevo</p>
+            <p class="ingrediente-text" data-i18n="ingredEgg">Huevo</p>
           </div>
         </div>
         <div class="recetas-filtradas"></div>
-        <button class="categorias-button">Buscar recetas</button>
+        <button class="categorias-button" data-i18n="categoriasButton">
+          Buscar recetas
+        </button>
       </section>
       <section class="recetas-semana section-anterior">
-        <h1>Recetas de la semana</h1>
-        <h2>Basado en búsquedas populares</h2>
+        <h1 data-i18n="recetasTitle">Recetas de la semana</h1>
+        <h2 data-i18n="recetasSubtitle">Basado en búsquedas populares</h2>
         <div class="recetas-grid">
           <div class="receta-card">
             <img
@@ -157,7 +179,9 @@
             />
             <h3 class="receta-title">Receta 1</h3>
             <p class="receta-description">Descripción breve de la receta 1.</p>
-            <a href="" class="receta-button">Ver receta</a>
+            <a href="" class="receta-button" data-i18n="verReceta"
+              >Ver receta</a
+            >
           </div>
           <div class="receta-card">
             <img
@@ -210,13 +234,15 @@
             <a href="" class="receta-button">Ver receta</a>
           </div>
         </div>
-        <button class="recetas-button">Ver más</button>
+        <button class="recetas-button" data-i18n="verMas">Ver más</button>
       </section>
     </main>
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-newsletter">
-          <h3 class="footer-newsletter-title">Suscríbete a nuestro boletín</h3>
+          <h3 class="footer-newsletter-title" data-i18n="footerNewsletter">
+            Suscríbete a nuestro boletín
+          </h3>
           <form action="#" method="post">
             <input
               type="email"
@@ -224,18 +250,27 @@
               placeholder="Tu correo electrónico"
               required
               class="footer-newsletter-input"
+              data-i18n="footerEmail"
             />
-            <button type="submit" class="footer-newsletter-button">
+            <button
+              type="submit"
+              class="footer-newsletter-button"
+              data-i18n="footerSuscribirse"
+            >
               Suscribirse
             </button>
           </form>
         </div>
         <ul class="footer-links-list">
           <li class="footer-links-item">
-            <a href="">Política de Privacidad</a>
+            <a href="" data-i18n="footerPrivacidad">Política de Privacidad</a>
           </li>
-          <li class="footer-links-item"><a href="">Términos de Servicio</a></li>
-          <li class="footer-links-item"><a href="">Contacto</a></li>
+          <li class="footer-links-item">
+            <a href="" data-i18n="footerTerminos">Términos de Servicio</a>
+          </li>
+          <li class="footer-links-item">
+            <a href="" data-i18n="footerContacto">Contacto</a>
+          </li>
         </ul>
         <div class="footer-social">
           <a href="https://www.facebook.com" target="_blank"
@@ -258,8 +293,8 @@
           /></a>
         </div>
       </div>
-      <p class="footer-copyright">
-        &copy; © 2025 CookShelf. Todos los derechos reservados..
+      <p class="footer-copyright" data-i18n="footerCopyright">
+        &copy; © 2025 CookShelf. Todos los derechos reservados.
       </p>
     </footer>
 
@@ -267,7 +302,8 @@
       document.addEventListener("DOMContentLoaded", function () {
         const ingredientes = document.querySelectorAll(".ingrediente-card");
         const recetasFiltradas = document.querySelector(".recetas-filtradas");
-        const buscarRecetasButton = document.querySelector(".categorias-button");
+        const buscarRecetasButton =
+          document.querySelector(".categorias-button");
         let ingredientesSeleccionados = [];
 
         ingredientes.forEach((ingrediente) => {
@@ -291,21 +327,28 @@
             // Añadir la logica para filtrar recetas
             // Por ahora, solo se mostrarán tarjetas de ejemplo
             ingredientesSeleccionados.forEach((ingrediente) => {
+              const currentLang =
+                localStorage.getItem("preferredLanguage") || "es";
+              const verRecetaText = translations[currentLang]["verReceta"];
+
               const recetaCard = document.createElement("div");
               recetaCard.classList.add("receta-card");
               recetaCard.innerHTML = `
-                <img src="img/recetas/receta1.jpg" alt="Receta con ${ingrediente}" class="receta-img" />
-                <h3 class="receta-title">Receta con ${ingrediente}</h3>
-                <p class="receta-description">Descripción breve de la receta con ${ingrediente}.</p>
-                <a href="" class="receta-button">Ver receta</a>
-              `;
+        <img src="img/recetas/receta1.jpg" alt="Receta con ${ingrediente}" class="receta-img" />
+        <h3 class="receta-title">Receta con ${ingrediente}</h3>
+        <p class="receta-description">Descripción breve de la receta con ${ingrediente}.</p>
+        <a href="" class="receta-button" data-i18n="verReceta">${verRecetaText}</a>
+      `;
               recetasFiltradas.appendChild(recetaCard);
             });
           } else {
-            recetasFiltradas.innerHTML = "<p>No se han seleccionado ingredientes.</p>";
+            const currentLang =
+              localStorage.getItem("preferredLanguage") || "es";
+            recetasFiltradas.innerHTML = `<p>${translations[currentLang]["noIngredientes"]}</p>`;
           }
         });
       });
     </script>
+    <script src="js/translations.js"></script>
   </body>
 </html>

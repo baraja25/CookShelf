@@ -1,0 +1,118 @@
+@use 'variables' as vars
+
+
+@mixin card($type: "basic", $padding: 1.5rem)
+  border-radius: 10px
+  overflow: hidden
+  
+  @if $type == "basic"
+    background-color: vars.$color-white
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  @else if $type == "elevated"
+    background-color: vars.$color-white
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15)
+  @else if $type == "flat"
+    background-color: vars.$color-neutral
+    border: 1px solid rgba(0, 0, 0, 0.1)
+    
+  padding: $padding
+  transition: transform 0.3s, box-shadow 0.3s
+  
+  &:hover
+    @if $type != "flat"
+      transform: translateY(-5px)
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2)
+
+// Corregir añadiendo el mixin flex general
+@mixin flex($direction: row, $justify: center, $align: center, $gap: 1rem, $wrap: nowrap)
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align
+  flex-wrap: $wrap
+  @if $gap != 0
+    gap: $gap
+
+@mixin breakpoint($point)
+  @if $point == "small"
+    @media (max-width: vars.$breakpoint-small)
+      @content
+  @else if $point == "medium"
+    @media (min-width: vars.$breakpoint-small + 1) and (max-width: vars.$breakpoint-large - 1)
+      @content
+  @else if $point == "large"
+    @media (min-width: vars.$breakpoint-large)
+      @content
+  @else if $point == "xlarge"
+    @media (min-width: vars.$breakpoint-xlarge)
+      @content
+
+// Mixin para botones
+@mixin button-primary
+  background-color: vars.$color-primary
+  color: vars.$color-white
+  padding: 0.75rem 1.5rem
+  border-radius: 5px
+  font-family: vars.$font-body
+  font-weight: vars.$font-weight-medium
+  text-decoration: none
+  cursor: pointer
+  transition: all 0.3s ease
+  
+  &:hover
+    background-color: vars.$color-secondary
+    transform: scale(1.05)
+
+@mixin button-secondary
+  background-color: vars.$color-secondary
+  color: vars.$color-white
+  padding: 0.75rem 1.5rem
+  border-radius: 5px
+  font-family: vars.$font-body
+  font-weight: vars.$font-weight-medium
+  text-decoration: none
+  cursor: pointer
+  transition: all 0.3s ease
+  
+  &:hover
+    background-color: vars.$color-primary
+    transform: scale(1.05)
+
+// Mixin para tarjetas
+@mixin card-basic
+  background-color: vars.$color-white
+  border-radius: 10px
+  overflow: hidden
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  padding: 1.5rem
+  transition: transform 0.3s, box-shadow 0.3s
+  
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2)
+
+// Mixin para flexbox
+@mixin flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 1rem
+
+@mixin flex-column
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 1rem
+
+// Mixin para media queries
+@mixin small-screen
+  @media (max-width: vars.$breakpoint-small)
+    @content
+
+@mixin medium-screen
+  @media (min-width: vars.$breakpoint-small + 1) and (max-width: vars.$breakpoint-large - 1)
+    @content
+
+@mixin large-screen
+  @media (min-width: vars.$breakpoint-large)
+    @content

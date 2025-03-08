@@ -2,6 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+     <!-- Metadatos SEO básicos -->
+     <meta name="description" content="Conoce a CookShelf, tu compañero perfecto para cocinar. Descubre nuestra misión de reducir el desperdicio de alimentos y ayudarte a crear deliciosas comidas con lo que ya tienes en tu cocina." />
+     <meta name="keywords" content="sobre nosotros, CookShelf, misión, valores, desperdicio cero, cocina sostenible, recetas personalizadas" />
+     <meta name="author" content="Equipo CookShelf" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="robots" content="index, follow" />
+     <link rel="canonical" href="https://www.cookshelf.com/pages/SobreNosotros.html" />
+     
+     <!-- Open Graph / Facebook -->
+     <meta property="og:type" content="website" />
+     <meta property="og:url" content="https://www.cookshelf.com/pages/SobreNosotros.html" />
+     <meta property="og:title" content="Sobre Nosotros - CookShelf" />
+     <meta property="og:description" content="Conoce la misión de CookShelf y descubre cómo ayudamos a reducir el desperdicio de alimentos mientras disfrutas de deliciosas recetas." />
+     <meta property="og:image" content="https://www.cookshelf.com/img/why.jpg" />
+     <meta property="og:site_name" content="CookShelf" />
+     
+     <!-- Twitter -->
+     <meta name="twitter:card" content="summary_large_image" />
+     <meta name="twitter:url" content="https://www.cookshelf.com/pages/SobreNosotros.html" />
+     <meta name="twitter:title" content="Sobre Nosotros - CookShelf" />
+     <meta name="twitter:description" content="Conoce la misión de CookShelf y descubre cómo ayudamos a reducir el desperdicio de alimentos mientras disfrutas de deliciosas recetas." />
+     <meta name="twitter:image" content="https://www.cookshelf.com/img/why.jpg" />
+     
+     <!-- Recursos CSS existentes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../sass/components/navbar.css">
@@ -29,24 +53,27 @@
         </nav>
     </header>
     <main>
-        <section class="welcome-section fade-in">
-            <h1 class="welcome-title">Bienvenido a CookShelf</h1>
-            <h2 class="welcome-slogan">Tu compañero de cocina perfecto</h2>
-            <p class="welcome-description">En CookShelf, creemos que cocinar debería ser fácil, creativo y sin desperdicios. Nuestra misión es ayudarte a descubrir recetas deliciosas usando exactamente lo que ya tienes en tu cocina.</p>
+       <!-- Sección de bienvenida con microdatos de Organization -->
+       <section class="welcome-section fade-in" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="url" content="https://www.cookshelf.com">
+            <link itemprop="logo" href="https://www.cookshelf.com/img/Logo2NBG.png">
+            <h1 class="welcome-title" itemprop="name">Bienvenido a CookShelf</h1>
+            <h2 class="welcome-slogan" itemprop="slogan">Tu compañero de cocina perfecto</h2>
+            <p class="welcome-description" itemprop="description">En CookShelf, creemos que cocinar debería ser fácil, creativo y sin desperdicios. Nuestra misión es ayudarte a descubrir recetas deliciosas usando exactamente lo que ya tienes en tu cocina.</p>
         </section>
-        <section class="why-use-section section-anterior">
-            <h2 class="why-use-title">¿Por qué usar CookShelf?</h2>
+         <!-- Sección Por qué usar con microdatos de Service -->
+         <section class="why-use-section section-anterior" itemscope itemtype="https://schema.org/Service">
+            <h2 class="why-use-title" itemprop="name">¿Por qué usar CookShelf?</h2>
             <div class="why-use-content">
                 <ul class="why-use-list">
-                    <li class="why-use-item">🌍 Reduce el desperdicio de alimentos</li>
-                    <li class="why-use-item">🛒 Recetas personalizadas según tus ingredientes</li>
-                    <li class="why-use-item">🍳 Fácil de usar y navegar</li>
-                    <li class="why-use-item">&#128195 Consejos y trucos de cocina</li>
-                    <li class="why-use-item">&#128338 Actualizaciones diarias de recetas</li>
+                    <li class="why-use-item" itemprop="serviceType">🌍 Reduce el desperdicio de alimentos</li>
+                    <li class="why-use-item" itemprop="serviceType">🛒 Recetas personalizadas según tus ingredientes</li>
+                    <li class="why-use-item" itemprop="serviceType">🍳 Fácil de usar y navegar</li>
+                    <li class="why-use-item" itemprop="serviceType">&#128195 Consejos y trucos de cocina</li>
+                    <li class="why-use-item" itemprop="serviceType">&#128338 Actualizaciones diarias de recetas</li>
                 </ul>
-                <img src="../img/why.jpg" alt="Razones para usar CookShelf" class="why-use-image">
+                <img src="../img/why.jpg" alt="Razones para usar CookShelf" class="why-use-image" itemprop="image">
             </div>
-           
         </section>
     <footer class="footer">
         <div class="footer-content">

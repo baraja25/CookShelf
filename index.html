@@ -1,7 +1,59 @@
+<!-- MEJORAS PROPUESTAS PARA IMPLEMENTACIÓN FUTURA:
+    
+    1. Sistema de favoritos y personalización:
+       - Implementar un sistema de cuentas de usuario que permita guardar recetas favoritas
+       - Crear un panel de control personalizado donde cada usuario pueda:
+         * Ver su historial de recetas consultadas
+         * Crear colecciones personalizadas (desayunos, comidas rápidas, etc.)
+       - Añadir sincronización entre dispositivos mediante API REST
+    
+    2. Optimización de rendimiento y experiencia offline:
+       - Implementar lazy loading para todas las imágenes de recetas
+       - Convertir imágenes a formato WebP con fallback para navegadores no compatibles
+       - Desarrollar un Service Worker que permita:
+         * Funcionamiento offline de las recetas guardadas
+         * Precarga inteligente de contenido basada en patrones de uso
+         * Actualizaciones en segundo plano cuando haya conexión
+       - Implementar una PWA (Progressive Web App) completa que permita la instalación
+         como aplicación nativa en dispositivos móviles y desktop
+       - Añadir sistema de caché inteligente para mejorar tiempos de carga recurrentes
+
+       3. Integración con servicios de compra y planificación de comidas:
+       - Generar automáticamente listas de compra basadas en recetas seleccionadas
+       - Crear un planificador semanal de comidas con cálculo automático de ingredientes
+         necesarios para evitar compras duplicadas y reducir desperdicio
+       - Añadir sistema de seguimiento de inventario de cocina que sugiera recetas
+         basadas en lo que está por agotarse o caducar
+    -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <!-- Metadatos SEO básicos -->
+    <meta name="description" content="CookShelf - Tu asistente de cocina que te ayuda a descubrir recetas deliciosas con los ingredientes que ya tienes en casa. Reduce el desperdicio alimentario y amplía tus horizontes culinarios." />
+    <meta name="keywords" content="recetas, cocina, ingredientes, cocinar con lo que tienes, desperdicio cero, comida casera, recetas personalizadas" />
+    <meta name="author" content="Equipo CookShelf" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.cookshelf.com/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.cookshelf.com/" />
+    <meta property="og:title" content="CookShelf - Cocina con lo que tienes" />
+    <meta property="og:description" content="Descubre recetas deliciosas con los ingredientes que ya tienes en tu cocina. ¡Comienza a cocinar hoy!" />
+    <meta property="og:image" content="https://www.cookshelf.com/img/cookshelf-social.jpg" />
+    <meta property="og:site_name" content="CookShelf" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.cookshelf.com/" />
+    <meta name="twitter:title" content="CookShelf - Cocina con lo que tienes" />
+    <meta name="twitter:description" content="Descubre recetas deliciosas con los ingredientes que ya tienes en tu cocina. ¡Comienza a cocinar hoy!" />
+    <meta name="twitter:image" content="https://www.cookshelf.com/img/cookshelf-social.jpg" />
+    <!-- Recursos CSS -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="sass//pages/styles.css" />
     <link rel="stylesheet" href="sass/components/navbar.css" />
@@ -11,6 +63,20 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Estilo para elementos solo para lectores de pantalla */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
     <title>CookShelf</title>
   </head>
   <body>
@@ -18,12 +84,25 @@
       <a href="index.html">
         <img src="img/Logo2NBG.png" alt="Logo pagina" class="navbar-logo" />
       </a>
-      <nav>  
+      <nav>
         <ul class="navbar-list">
           <div class="language-selector">
             <button class="language-btn" data-lang="es">ES</button>
             <span>|</span>
             <button class="language-btn" data-lang="en">EN</button>
+            <span>|</span>
+            <button
+              id="contrast-toggle"
+              class="contrast-btn"
+              aria-label="Cambiar contraste"
+            >
+              <img
+                src="img/icons/contrast.png"
+                alt="Contraste"
+                class="contrast-icon"
+              />
+              <span class="contrast-text">Contraste</span>
+            </button>
           </div>
           <li class="navbar-item">
             <a href="pages/SobreNosotros.html" data-i18n="navSobreNosotros"
@@ -346,6 +425,51 @@
               localStorage.getItem("preferredLanguage") || "es";
             recetasFiltradas.innerHTML = `<p>${translations[currentLang]["noIngredientes"]}</p>`;
           }
+        });
+      });
+    </script>
+    <script>
+      // Función para manejar el cambio de contraste
+      document.addEventListener('DOMContentLoaded', function() {
+        const contrastToggle = document.getElementById('contrast-toggle');
+        
+        // Verificar si hay una preferencia guardada
+        const highContrastMode = localStorage.getItem('highContrast') === 'true';
+        
+        // Aplicar el modo de contraste si está guardado
+        if (highContrastMode) {
+          document.body.classList.add('high-contrast');
+          contrastToggle.classList.add('active');
+        }
+        
+        // Manejar el clic en el botón de contraste
+        contrastToggle.addEventListener('click', function() {
+          document.body.classList.toggle('high-contrast');
+          const isHighContrast = document.body.classList.contains('high-contrast');
+          
+          // Guardar la preferencia en localStorage
+          localStorage.setItem('highContrast', isHighContrast);
+          
+          // Actualizar la apariencia del botón
+          if (isHighContrast) {
+            contrastToggle.classList.add('active');
+          } else {
+            contrastToggle.classList.remove('active');
+          }
+          
+          // Anunciar cambio para lectores de pantalla
+          const announcement = document.createElement('div');
+          announcement.setAttribute('aria-live', 'polite');
+          announcement.classList.add('sr-only'); // Solo para lectores de pantalla
+          announcement.textContent = isHighContrast ? 
+            'Modo de alto contraste activado' : 
+            'Modo de contraste normal activado';
+          document.body.appendChild(announcement);
+          
+          // Eliminar el anuncio después de que se haya leído
+          setTimeout(() => {
+            document.body.removeChild(announcement);
+          }, 1000);
         });
       });
     </script>

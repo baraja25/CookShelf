@@ -1,0 +1,167 @@
+@use 'variables' as vars
+
+// Estilos para el botón de contraste
+.contrast-btn
+  display: flex
+  align-items: center
+  gap: 5px
+  background-color: transparent
+  color: vars.$color-text
+  border: none
+  padding: 0.25rem 0.5rem
+  border-radius: 4px
+  cursor: pointer
+  transition: all 0.3s ease
+  
+  &:hover
+    background-color: vars.$color-primary
+    color: vars.$color-white
+  
+  &.active
+    background-color: vars.$color-primary
+    color: vars.$color-white
+
+.contrast-icon
+  width: 20px
+  height: 20px
+
+.contrast-text
+  font-size: 0.875rem
+  font-weight: 600
+
+// Estilos para el modo de alto contraste
+body.high-contrast
+  background-color: #000000
+  color: #ffffff
+  
+  .navbar
+    background-color: #000000
+    border-bottom: 2px solid #ffffff
+    
+    &-list a
+      color: #ffffff
+      
+      &:hover, &.active
+        color: #ffff00
+        
+        &::after
+          background-color: #ffff00
+  
+  .hero
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../../img/heroBG.jpg")
+    
+    &-title
+      color: #ffffff
+      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000
+    
+    &-description
+      color: #ffffff
+    
+    &-button
+      background-color: #ffff00
+      color: #000000
+      border: 2px solid #ffffff
+      
+      &:hover
+        background-color: #ffffff
+        color: #000000
+  
+  .categorias
+    background-color: #222222
+    border-color: #ffffff
+    
+    &-title
+      color: #ffff00
+    
+    &-search
+      border-color: #ffffff
+    
+    &-input
+      color: #ffffff
+      background-color: #222222
+      
+      &::placeholder
+        color: #dddddd
+    
+    &-button
+      background-color: #ffff00
+      color: #000000
+      border: 2px solid #ffffff
+      
+      &:hover
+        background-color: #ffffff
+        color: #000000
+  
+  .ingrediente-card
+    background-color: #222222
+    border: 2px solid #ffffff
+    color: #ffffff
+    
+    &.selected
+      background-color: #ffff00
+      color: #000000
+    
+    &:hover
+      background-color: #444444
+  
+  .recetas-semana
+    background-color: #000000
+    border-color: #ffffff
+    
+    h1
+      color: #ffff00
+    
+    h2
+      color: #ffffff
+  
+  .receta-card
+    background-color: #222222
+    border: 2px solid #ffffff
+    
+    &-title
+      color: #ffff00
+    
+    &-description
+      color: #ffffff
+    
+    &-button
+      border-color: #ffffff
+      color: #ffffff
+      
+      &:hover
+        background-color: #ffff00
+        color: #000000
+  
+  .footer
+    background-color: #000000
+    border-top: 2px solid #ffffff
+    
+    &-newsletter-title
+      color: #ffff00
+    
+    &-newsletter-input
+      background-color: #222222
+      color: #ffffff
+      border: 2px solid #ffffff
+    
+    &-newsletter-button
+      background-color: #ffff00
+      color: #000000
+    
+    &-links-item a
+      color: #ffffff
+      
+      &:hover
+        color: #ffff00
+    
+    &-copyright
+      color: #dddddd
+
+// Media queries para el botón de contraste
+@media (max-width: 576px)
+  .contrast-text
+    display: none
+  
+  .contrast-icon
+    width: 25px
+    height: 25px

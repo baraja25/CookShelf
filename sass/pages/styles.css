@@ -56,6 +56,177 @@
     justify-content: center;
   }
 }
+.contrast-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  color: #2d2a26;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.contrast-btn:hover {
+  background-color: #ff7f50;
+  color: #ffffff;
+}
+.contrast-btn.active {
+  background-color: #ff7f50;
+  color: #ffffff;
+}
+
+.contrast-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.contrast-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+body.high-contrast {
+  background-color: #000000;
+  color: #ffffff;
+}
+body.high-contrast .navbar {
+  background-color: #000000;
+  border-bottom: 2px solid #ffffff;
+}
+body.high-contrast .navbar-list a {
+  color: #ffffff;
+}
+body.high-contrast .navbar-list a:hover, body.high-contrast .navbar-list a.active {
+  color: #ffff00;
+}
+body.high-contrast .navbar-list a:hover::after, body.high-contrast .navbar-list a.active::after {
+  background-color: #ffff00;
+}
+body.high-contrast .hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../../img/heroBG.jpg");
+}
+body.high-contrast .hero-title {
+  color: #ffffff;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+body.high-contrast .hero-description {
+  color: #ffffff;
+}
+body.high-contrast .hero-button {
+  background-color: #ffff00;
+  color: #000000;
+  border: 2px solid #ffffff;
+}
+body.high-contrast .hero-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.high-contrast .categorias {
+  background-color: #222222;
+  border-color: #ffffff;
+}
+body.high-contrast .categorias-title {
+  color: #ffff00;
+}
+body.high-contrast .categorias-search {
+  border-color: #ffffff;
+}
+body.high-contrast .categorias-input {
+  color: #ffffff;
+  background-color: #222222;
+}
+body.high-contrast .categorias-input::-moz-placeholder {
+  color: #dddddd;
+}
+body.high-contrast .categorias-input::placeholder {
+  color: #dddddd;
+}
+body.high-contrast .categorias-button {
+  background-color: #ffff00;
+  color: #000000;
+  border: 2px solid #ffffff;
+}
+body.high-contrast .categorias-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.high-contrast .ingrediente-card {
+  background-color: #222222;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+body.high-contrast .ingrediente-card.selected {
+  background-color: #ffff00;
+  color: #000000;
+}
+body.high-contrast .ingrediente-card:hover {
+  background-color: #444444;
+}
+body.high-contrast .recetas-semana {
+  background-color: #000000;
+  border-color: #ffffff;
+}
+body.high-contrast .recetas-semana h1 {
+  color: #ffff00;
+}
+body.high-contrast .recetas-semana h2 {
+  color: #ffffff;
+}
+body.high-contrast .receta-card {
+  background-color: #222222;
+  border: 2px solid #ffffff;
+}
+body.high-contrast .receta-card-title {
+  color: #ffff00;
+}
+body.high-contrast .receta-card-description {
+  color: #ffffff;
+}
+body.high-contrast .receta-card-button {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+body.high-contrast .receta-card-button:hover {
+  background-color: #ffff00;
+  color: #000000;
+}
+body.high-contrast .footer {
+  background-color: #000000;
+  border-top: 2px solid #ffffff;
+}
+body.high-contrast .footer-newsletter-title {
+  color: #ffff00;
+}
+body.high-contrast .footer-newsletter-input {
+  background-color: #222222;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+body.high-contrast .footer-newsletter-button {
+  background-color: #ffff00;
+  color: #000000;
+}
+body.high-contrast .footer-links-item a {
+  color: #ffffff;
+}
+body.high-contrast .footer-links-item a:hover {
+  color: #ffff00;
+}
+body.high-contrast .footer-copyright {
+  color: #dddddd;
+}
+
+@media (max-width: 576px) {
+  .contrast-text {
+    display: none;
+  }
+  .contrast-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
 .navbar {
   display: flex;
   flex-direction: row;
